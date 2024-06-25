@@ -1,0 +1,35 @@
+module unload mpi/openmpi-3.0.0-gcc-7.1.0
+module load mpi/openmpi-3.1.0-gcc-8.3.0
+module load Python/python-3.7.7-openmpi-3.1.0-gcc-8.3.0
+source ~/spack/share/spack/setup-env.sh
+
+
+### Adding a job to install fastp
+
+#!/bin/bash
+#SBATCH -J "deneme"            # İş adı
+#SBATCH -A doğru_hesap_adı     # Doğru hesap adı
+#SBATCH -p doğru_kuyruk_adı    # Doğru kuyruk adı
+#SBATCH -o slurm.%j.out        # Standart çıktı dosyası
+#SBATCH -e slurm.%j.err        # Standart hata dosyası
+#SBATCH -N 1                   # Düğüm sayısı
+
+# Spack ortamını ayarla
+source ~/spack/share/spack/setup-env.sh
+
+# Gerekli modülleri yükle
+module load mpi/openmpi-3.1.0-gcc-8.3.0
+module load Python/python-3.7.7-openmpi-3.1.0-gcc-8.3.0
+
+# Spack kullanarak fastp'yi kur
+spack install fastp
+
+chmod +x deneme.sh
+
+sbatch deneme.sh
+### Fastp Procedure
+
+spack location -i fastp
+/okyanus/users/ekara02/spack/opt/spack/linux-centos7-broadwell/gcc-7.1.0/fastp-0.23.4-vkh7tqfxhjzn5rn3lzmn346fvpee2r4o/bin/fastp -i RP23-238-23284_S469_L002_R1_001.fastq -I RP23-238-23284_S469_L002_R2_001.fastq -o RP23-238-23284_S469_L002_R1_001_trimmed.fastq -O RP23-238-23284_S469_L002_R2_001_trimmed.fastq --merge --merged_out birleştirilmiş_okumalar.fastq --dedup
+
+
