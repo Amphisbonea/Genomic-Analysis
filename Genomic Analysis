@@ -1,7 +1,9 @@
-module unload mpi/openmpi-3.0.0-gcc-7.1.0
-module load mpi/openmpi-3.1.0-gcc-8.3.0
+### Installing the fastp from spack
+
+module unload mpi/openmpi-3.0.0-gcc-7.1.0  # This module conflict with the one that will be uploaded
+module load mpi/openmpi-3.1.0-gcc-8.3.0 # This is the new module we need to upload the up-to-date Python version
 module load Python/python-3.7.7-openmpi-3.1.0-gcc-8.3.0
-source ~/spack/share/spack/setup-env.sh
+source ~/spack/share/spack/setup-env.sh # This creates and environment
 
 
 ### Adding a job to install fastp
@@ -31,5 +33,16 @@ sbatch deneme.sh
 
 spack location -i fastp
 /okyanus/users/ekara02/spack/opt/spack/linux-centos7-broadwell/gcc-7.1.0/fastp-0.23.4-vkh7tqfxhjzn5rn3lzmn346fvpee2r4o/bin/fastp -i RP23-238-23284_S469_L002_R1_001.fastq -I RP23-238-23284_S469_L002_R2_001.fastq -o RP23-238-23284_S469_L002_R1_001_trimmed.fastq -O RP23-238-23284_S469_L002_R2_001_trimmed.fastq --merge --merged_out birleştirilmiş_okumalar.fastq --dedup
+
+### Installing the Anaconda
+
+module load Anaconda/Anaconda3-2019.10-python3.7.4
+source /okyanus/progs/ANACONDA/anaconda3-2019.10-python3.7.4/etc/profile.d/conda.sh
+conda create --name emre #This creates an environment called "emre"
+
+# Installing the Novoplasty
+
+conda install -c bioconda novoplasty
+
 
 
