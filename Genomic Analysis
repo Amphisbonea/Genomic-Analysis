@@ -5,6 +5,8 @@ module load mpi/openmpi-3.1.0-gcc-8.3.0 # This is the new module we need to uplo
 module load Python/python-3.7.7-openmpi-3.1.0-gcc-8.3.0
 source ~/spack/share/spack/setup-env.sh # This creates and environment
 
+which spack # Find the path of the spack
+nano path/to/spack # Opens the spack file --> Edit the path to Python to eliminate the 2.7.5 version error
 
 ### Adding a job to install fastp
 
