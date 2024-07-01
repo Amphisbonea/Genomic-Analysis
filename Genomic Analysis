@@ -45,6 +45,56 @@ conda create --name emre #This creates an environment called "emre"
 # Installing the Novoplasty
 
 conda install -c bioconda novoplasty
+find $CONDA_PREFIX -name "NOVOPlasty4.3.1.pl"
+
+
+#### NOVOPLASTY için config dosyasının içi:
+
+Project:
+-----------------------
+Project name          = novo_deneme
+Type                  = mito
+Genome range          = 12000-22000
+K-mer                 = 33
+Max memory            =
+Extended log          = 0
+Save assembled reads  = no
+Seed Input            = /okyanus/users/ekara02/RefGen.fasta
+Extend seed directly  = no
+Reference sequence    =
+Variance detection    =
+Chloroplast sequence  =
+
+Dataset 1:
+-----------------------
+Read Length           = 151
+Insert size           = 300
+Platform              = illumina
+Single/Paired         = PE
+Combined reads        = /okyanus/users/ekara02/birleştirilmiş_okumalar.fastq
+Forward reads         =
+Reverse reads         =
+Store Hash            =
+
+Heteroplasmy:
+-----------------------
+Heteroplasmy          =
+HP exclude list       =
+PCR-free              =
+
+Optional:
+-----------------------
+Insert size auto      = yes
+Use Quality Scores    =
+Output path           = /okyanus/users/ekara02/Novo_Files
+
+
+## Tüm dosyalar Cluster'ın içerisinde olmalı. Path'leri Cluster'in içindeki pathler olarak vermelisin
+
+
+perl /okyanus/users/ekara02/.conda/envs/emre/bin/NOVOPlasty4.3.1.pl -c config.txt
+
+
 
 
 
