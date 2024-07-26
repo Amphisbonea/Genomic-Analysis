@@ -96,5 +96,15 @@ perl /okyanus/users/ekara02/.conda/envs/emre/bin/NOVOPlasty4.3.1.pl -c config.tx
 
 
 
+### SAM process
+
+cd ~                # Go back to the home directory
+tar -xvf samtools-1.20.tar
+cd samtools-1.20
+./configure --prefix=/okyanus/users/ekara02
+
+
+
+
 
 
